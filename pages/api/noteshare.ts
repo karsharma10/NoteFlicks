@@ -5,12 +5,17 @@ import {comment} from "../../types/comment";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const method = req.method;
-    if (method === "POST") {
+
+    if (method === "POST") { //Post request to mongodb
         try {
             const client = await clientPromise;
             const db = client.db("NoteFlixDb");
 
-            const uploadNote: Note = {
+            if (req.body.title == null || req.body.content == null || req.body.totalLines == null) { //one of the field values are empty
+                res.status(400).json({message: "field value is empty"});
+            }
+
+            const uploadNote: Note = { //create note type
                 title: req.body.title,
                 content: req.body.content,
                 totalLines: req.body.totalLines,
@@ -22,9 +27,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         } catch (e) {
             res.status(400).json({message: "failed to post new note to the database"});
         }
-    }
-    else{
-        res.status(401).json({message: "API request "+method+" not allowed"});
+    } else {
+        res.status(401).json({message: "API request " + method + " not allowed"});
     }
 
 }
