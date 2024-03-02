@@ -1,10 +1,20 @@
 .markdown-input-container {
     width: 50%;
+    margin-right: .5rem;
     height: 100%;
 }
 
+.markdown-input-container > textarea {
+    font-size: 14px;
+    outline: none;
+    border: none;
+    border-right: 1px solid #c7c7c7;
+}
+
 .markdown-parser-container {
+    width: 50%;
     max-width: 50%;
+    overflow: auto;
 }
 
 .markdown-text-input {
