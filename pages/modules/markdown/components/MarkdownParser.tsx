@@ -15,7 +15,7 @@ import cpp from 'react-syntax-highlighter/dist/cjs/languages/prism/cpp';
 import java from 'react-syntax-highlighter/dist/cjs/languages/prism/java';
 import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python';
 import rangeParser from 'parse-numeric-range';
-import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { oneLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 
 SyntaxHighlighter.registerLanguage('tsx', tsx);
@@ -36,7 +36,7 @@ type MarkdownProps = {
 
 export default function MarkdownParser({token}: markdownParserProps): JSX.Element {
 
-  const syntaxTheme = oneDark;
+  const syntaxTheme = oneLight;
 
   const MarkdownComponents: object = {
     code({ node, inline, className, ...props }) {
