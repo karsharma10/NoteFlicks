@@ -8,9 +8,9 @@ export default function Main(): JSX.Element {
 
 
   return (
-    <>
-       <MarkdownInput setToken={setToken}></MarkdownInput>
+    <div className="w-screen h-screen flex">
+      <MarkdownInput setToken={setToken}></MarkdownInput>
       <MarkdownParser token={token}></MarkdownParser>
-    </>
+    </div>
   );
 }
