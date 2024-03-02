@@ -14,6 +14,9 @@ import c from 'react-syntax-highlighter/dist/cjs/languages/prism/c';
 import cpp from 'react-syntax-highlighter/dist/cjs/languages/prism/cpp';
 import java from 'react-syntax-highlighter/dist/cjs/languages/prism/java';
 import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python';
+import rangeParser from 'parse-numeric-range';
+import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+
 
 SyntaxHighlighter.registerLanguage('tsx', tsx);
 SyntaxHighlighter.registerLanguage('typescript', typescript);
@@ -26,9 +29,6 @@ SyntaxHighlighter.registerLanguage('cpp', cpp);
 SyntaxHighlighter.registerLanguage('java', java);
 SyntaxHighlighter.registerLanguage('python', python);
 
-
-import rangeParser from 'parse-numeric-range';
-import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 type MarkdownProps = {
   markdown: string & { content?: string };

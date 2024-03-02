@@ -8,7 +8,6 @@ export default function Main(): JSX.Element {
 
   const [token, setToken] = useState<string>('');
 
-
   return (
     <div className="main-container">
       <Header></Header>
