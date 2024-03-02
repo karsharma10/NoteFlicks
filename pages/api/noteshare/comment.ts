@@ -2,12 +2,14 @@ import clientPromise from "../../../lib/mongodb";
 import {NextApiRequest, NextApiResponse} from "next";
 import {databaseName} from "../../../config/databaseConfig";
 import {comment} from "../../../types/comment";
+import {ObjectId} from "mongodb";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const method = req.method;
 
-    if(method === "POST"){
+    if (method === "POST") {
         try {
+            const id = new ObjectId(req.body.noteId);
             const client = await clientPromise;
             const db = client.db(databaseName);
 
@@ -15,7 +17,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 res.status(400).json({message: "field value is empty"});
             }
 
-            const newComment : comment = {
+            const newComment: comment = {
                 createdBy: req.body.createdBy,
                 comment: req.body.comment,
                 date: req.body.date,
@@ -24,16 +26,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             }
 
             const add_comment = await db.collection(databaseName).updateOne(
-                { "_id" :  req.body.noteId},
-                { $push: { "comments" : newComment } }
+                {"_id": id},
+                {$push: {"comments": newComment}},
+                {upsert: false}
             );
 
             res.json(add_comment);
 
-        }catch (e){
+        } catch (e) {
 
         }
-    } else{
+    } else {
         res.status(401).json({message: "API request " + method + " not allowed"});
     }
 
