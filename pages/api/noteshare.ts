@@ -1,11 +1,11 @@
 import clientPromise from "../../lib/mongodb";
 import {NextApiRequest, NextApiResponse} from "next";
-import {Note} from "../../types/note";
-import {comment} from "../../types/comment";
+import {NoteType} from "../../types/noteType";
 import {databaseName} from "../../config/databaseConfig";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const method = req.method;
+    console.log(req.body)
 
     if (method === "POST") { //Post request to mongodb
         try {
@@ -16,7 +16,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 res.status(400).json({message: "field value is empty"});
             }
 
-            const uploadNote: Note = { //create note type
+            const uploadNote: NoteType = { //create note type
                 title: req.body.title,
                 content: req.body.content,
                 totalLines: req.body.totalLines,

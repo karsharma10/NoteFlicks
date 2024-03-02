@@ -8,7 +8,7 @@
 .header-container {
     width: 100%;
     height: 5%;
-    background-color: #ff6d16;
+    background-color: rgb(56, 127, 174);
     display: flex;
     align-items: center;
 }
@@ -23,4 +23,24 @@
     width: 100vw;
     display: flex;
     height: 94%;
+}
+
+.header-share-button {
+    width: 4rem;
+    height: 1.5rem;
+    text-align: center;
+    border-radius: 3px;
+    padding: .3rem;
+    margin-left: auto;
+    margin-right: .5rem;
+    border: none;
+    color: white;
+    background-color: rgba(155, 210, 255, 0.64);
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.header-share-button:hover {
+    background-color: rgba(132, 198, 255, 0.64);
 }

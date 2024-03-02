@@ -2,12 +2,12 @@ import { useState } from 'react';
 
 type validTypes = 'POST' | 'PUT'
 
-const usePostRequest = (url: string, method: validTypes = 'POST') => {
-  const [data, setData] = useState(null);
+const usePostRequest = <T>(url: string, method: validTypes = 'POST') => {
+  const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const postData = async (body: any) => {
+  const postData = async (body: any): Promise<T> => {
     setLoading(true);
     try {
       const response = await fetch(url, {
@@ -15,7 +15,7 @@ const usePostRequest = (url: string, method: validTypes = 'POST') => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(postData),
+        body: JSON.stringify(body),
       });
 
       if (!response.ok) {
@@ -25,6 +25,7 @@ const usePostRequest = (url: string, method: validTypes = 'POST') => {
       const responseData = await response.json();
       setData(responseData);
       setError(null);
+      return Promise.resolve(responseData);
     } catch (error) {
       setError((error as Error).message);
       setData(null);
