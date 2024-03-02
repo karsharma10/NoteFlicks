@@ -23,7 +23,7 @@ export default function Main(): JSX.Element {
       token.split('\n').length
     );
 
-    postData(body).then((saveNoteRes) => {
+    postData(body).then((saveNoteRes: SaveNoteResponse): void => {
       console.log(`http://localhost:3000/api/noteshare/${saveNoteRes?.insertedId}`)
     })
   }
