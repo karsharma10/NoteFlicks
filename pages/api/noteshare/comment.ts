@@ -34,7 +34,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             res.json(add_comment);
 
         } catch (e) {
-
+            res.status(400).json({message: "comment update failed"});
         }
     } else {
         res.status(401).json({message: "API request " + method + " not allowed"});
