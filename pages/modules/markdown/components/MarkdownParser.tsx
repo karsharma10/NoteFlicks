@@ -1,26 +1,13 @@
-import { MarkdownState } from '../../core/components/Main';
 import { markdownParserProps } from '../types/markdownParser';
-
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
+export default function MarkdownParser({token}: markdownParserProps): JSX.Element {
 
 
-class MarkdownElement {
-  type: MarkdownState;
-  content: string;
-  // children: MarkdownElement[];
-
-  constructor(type: MarkdownState, content: string){
-    this.type = type;
-    this.content = content;
-    // this.children = children;
-  }
-}
-
-
-export default function MarkdownParser({ token, mdState, setMdSate }: markdownParserProps): JSX.Element {
   return (
-    <Markdown remarkPlugins={[remarkGfm]}>{token}</Markdown>
+    <div className="max-w-[50%]">
+      <Markdown remarkPlugins={[remarkGfm]}>{token}</Markdown>
+    </div>
   )
 }

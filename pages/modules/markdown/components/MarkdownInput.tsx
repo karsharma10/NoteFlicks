@@ -4,9 +4,12 @@ export default function MarkdownInput({ setToken }: { setToken: Dispatch<SetStat
   
 
   return (
-    <input
-      onChange={(e) => setToken(e.target.value)}
-      type="text" placeholder="Enter your markdown here"
-    />
+    <div className="w-[50%] h-full">
+      <textarea
+        className="w-full h-full resize-none"
+        onChange={(e) => setToken(e.target.value)}
+        placeholder="Enter your markdown here"
+      />
+    </div>
   );
 }
