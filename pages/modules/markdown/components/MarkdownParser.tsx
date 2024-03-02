@@ -4,7 +4,7 @@ export default function MarkdownParser({token}: markdownParserProps): JSX.Elemen
 
 
   return (
-    <div className="max-w-[50%]">
+    <div className="markdown-parser-container">
       <h2 className="text-3xl font-bold underline">{token}</h2>
     </div>
   )

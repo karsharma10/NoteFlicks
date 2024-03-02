@@ -1,0 +1,14 @@
+.markdown-input-container {
+    width: 50%;
+    height: 100%;
+}
+
+.markdown-parser-container {
+    max-width: 50%;
+}
+
+.markdown-text-input {
+    width: 100%;
+    height: 100%;
+    resize: none;
+}
