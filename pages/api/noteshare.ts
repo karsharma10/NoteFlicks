@@ -2,6 +2,7 @@ import clientPromise from "../../lib/mongodb";
 import {NextApiRequest, NextApiResponse} from "next";
 import {Note} from "../../types/note";
 import {comment} from "../../types/comment";
+import {databaseName} from "../../config/databaseConfig";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const method = req.method;
@@ -9,7 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (method === "POST") { //Post request to mongodb
         try {
             const client = await clientPromise;
-            const db = client.db("NoteFlixDb");
+            const db = client.db(databaseName);
 
             if (req.body.title == null || req.body.content == null || req.body.totalLines == null) { //one of the field values are empty
                 res.status(400).json({message: "field value is empty"});
@@ -21,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 totalLines: req.body.totalLines,
                 comments: []
             }
-            let post_note = await db.collection("NoteFlixDb").insertOne(uploadNote);
+            let post_note = await db.collection(databaseName).insertOne(uploadNote);
             res.json(post_note);
 
         } catch (e) {

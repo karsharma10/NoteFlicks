@@ -1,5 +1,6 @@
 import clientPromise from "../../../lib/mongodb";
 import {NextApiRequest, NextApiResponse} from "next";
+import {databaseName} from "../../../config/databaseConfig";
 
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -8,8 +9,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     if(method == "POST"){
         try {
             const client = await clientPromise;
-            const db = client.db("NoteFlixDb");
-            
+            const db = client.db(databaseName);
+
         }catch (e){
 
         }
