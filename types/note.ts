@@ -7,5 +7,4 @@ export type Note = {
     content: String
     totalLines: number
     comments: comment[]
-
 }
