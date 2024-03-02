@@ -28,7 +28,7 @@ SyntaxHighlighter.registerLanguage('python', python);
 
 
 import rangeParser from 'parse-numeric-range';
-import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { oneLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 type MarkdownProps = {
   markdown: string & { content?: string };
@@ -36,7 +36,7 @@ type MarkdownProps = {
 
 export default function MarkdownParser({token}: markdownParserProps): JSX.Element {
 
-  const syntaxTheme = oneDark;
+  const syntaxTheme = oneLight;
 
   const MarkdownComponents: object = {
     code({ node, inline, className, ...props }) {
