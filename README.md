@@ -1,6 +1,9 @@
 # NoteFlicks
 NoteFlicks is a platform where users can create markdown files, share them through a unique URL, and view others' notes in real-time without having to make an account. Designed with simplicity and efficiency in mind, it's perfect for sharing code snippets, project documentation, and ideas quickly among team members. Whether it's for reviewing a piece of code before a PR or jotting down notes in a team meeting, NoteFlicks facilitates instant collaboration and sharing.
 
+## Check It Out Here:
+https://note-flicks.vercel.app/app/edit
+
 ## Features:
  - Type in code, latex, or notes, and then hit the share button
  - Send the link to anyone else for them to view your work, such as if you need help on a specific portion of code, or need some advice on tackling a problem. 
@@ -18,9 +21,6 @@ NoteFlicks is a platform where users can create markdown files, share them throu
    - Framework: Nextjs, React
    - TypeScript
 
-
-## Check It Out Here:
-https://note-flicks.vercel.app/app/edit
 
 
 # Link To Dev Post:
