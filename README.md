@@ -21,3 +21,7 @@ An application to quickly share code, notes, or latex with a friend or for safek
 
 ## Check It Out Here:
 https://note-flicks.vercel.app/app/edit
+
+
+# Link To Dev Post:
+https://devpost.com/software/noteflicks
