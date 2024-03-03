@@ -34,7 +34,7 @@ export default function MarkdownParser({token, halfWidth}: markdownParserProps):
   const syntaxTheme = oneLight;
 
   const MarkdownComponents: object = {
-    code({ node, inline, className, ...props }) {
+    code({ node, inline, className, ...props }: any) {
       const hasLang = /language-(\w+)/.exec(className || '');
       const hasMeta = node?.data?.meta;
 
@@ -43,11 +43,11 @@ export default function MarkdownParser({token, halfWidth}: markdownParserProps):
           const RE = /{([\d,-]+)}/;
           const metadata = node.data.meta?.replace(/\s/g, '');
           const strlineNumbers = RE?.test(metadata)
-            ? RE?.exec(metadata)[1]
+            ? RE?.exec(metadata)![1]
             : '0';
           const highlightLines = rangeParser(strlineNumbers);
           const highlight = highlightLines;
-          const data: string = highlight.includes(applyHighlights)
+          const data: string | null = highlight.includes(applyHighlights)
             ? 'highlight'
             : null;
           return { data };
@@ -57,9 +57,9 @@ export default function MarkdownParser({token, halfWidth}: markdownParserProps):
       };
 
       return hasLang ? (
-        <SyntaxHighlighter
+        // @ts-ignore
+       <SyntaxHighlighter
           style={syntaxTheme}
-           
           language={hasLang[1]}
           PreTag="div"
           className="codeStyle"
