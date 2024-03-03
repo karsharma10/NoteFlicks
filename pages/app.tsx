@@ -1,7 +1,4 @@
 import Main from './modules/core/components/Main';
-// import '../styles/globals.css';
-// import './modules/core/components/core.module.css';
-// import './modules/markdown/components/markdown.module.css';
 import React from 'react';
 
 export default function Home(): React.JSX.Element {
