@@ -19,3 +19,5 @@ An application to quickly share code, notes, or latex with a friend or for safek
    - TypeScript
 
 
+## Check It Out Here:
+https://note-flicks.vercel.app/app/edit
