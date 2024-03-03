@@ -13,7 +13,7 @@ NoteFlicks is a platform where users can create markdown files, share them throu
 
 ### Backend:
 - Framework: Nextjs
-- ORM: MongoDB
+- ORM: MongoDB and Firebase
 - Database: NoSql
 - Infrastructure: Vercel
 
