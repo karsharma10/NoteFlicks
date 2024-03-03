@@ -1,5 +1,5 @@
 # NoteFlicks
-An application to quickly share code, notes, or latex with a friend or for safekeeping, without any hassle.
+NoteFlicks is a platform where users can create markdown files, share them through a unique URL, and view others' notes in real-time without having to make an account. Designed with simplicity and efficiency in mind, it's perfect for sharing code snippets, project documentation, and ideas quickly among team members. Whether it's for reviewing a piece of code before a PR or jotting down notes in a team meeting, NoteFlicks facilitates instant collaboration and sharing.
 
 ## Features:
  - Type in code, latex, or notes, and then hit the share button
