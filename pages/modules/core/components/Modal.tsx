@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import styles from './core.module.css';
 
 interface ModalProps {
   isOpen: boolean;
@@ -25,8 +26,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose }) => {
   }, [isOpen, onClose]);
 
   return isOpen ? (
-    <div className="modal-backdrop">
-      <div className="modal-content" ref={modalRef}>
+    <div className={styles.modalBackdrop}>
+      <div className={styles.modalContent} ref={modalRef}>
         {children}
       </div>
     </div>

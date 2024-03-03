@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import MarkdownInput from '../../markdown/components/MarkdownInput';
 import MarkdownParser from '../../markdown/components/MarkdownParser';
 import Header from './Header';
@@ -6,13 +6,13 @@ import usePostRequest from '../hooks/usePost';
 import { Note } from '../../../../types/noteType';
 import { SaveNoteResponse } from '../type/saveNote';
 import Modal from './Modal';
+import styles from './core.module.css';
 
 
-export default function Main(): JSX.Element {
+export default function Main(): React.JSX.Element {
 
   const [token, setToken] = useState<string>('');
-  const { postData, error, loading: saveNoteLoading }
-    = usePostRequest<SaveNoteResponse>('/api/noteshare');
+  const { postData, error, loading: saveNoteLoading } = usePostRequest<SaveNoteResponse>('/api/noteshare');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [saveNoteRes, setSaveNoteRes] = useState<SaveNoteResponse | null>(null);
 
@@ -48,11 +48,11 @@ export default function Main(): JSX.Element {
   }
 
   return (
-    <div className="main-container">
+    <div className={styles.mainContainer}>
       <Header saveNote={saveNote}></Header>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} children={modalContent()}></Modal>
 
-      <div className="main-markdown-container">
+      <div className={styles.mainMarkdownContainer}>
         <MarkdownInput setToken={setToken}></MarkdownInput>
         <MarkdownParser token={token}></MarkdownParser>
       </div>

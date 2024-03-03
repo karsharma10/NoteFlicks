@@ -1,11 +1,11 @@
-.main-container {
+.mainContainer {
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-.header-container {
+.headerContainer {
     width: 100%;
     height: 5%;
     background-color: rgb(56, 127, 174);
@@ -13,19 +13,19 @@
     align-items: center;
 }
 
-.header-title {
+.headerTitle {
     color: white;
     font-weight: 600;
     margin-left: .5rem;
 }
 
-.main-markdown-container {
+.mainMarkdownContainer {
     width: 100vw;
     display: flex;
     height: 94%;
 }
 
-.header-share-button {
+.headerShareButton {
     width: 4rem;
     height: 1.5rem;
     text-align: center;
@@ -41,11 +41,11 @@
     z-index: 10;
 }
 
-.header-share-button:hover {
+.headerShareButton:hover {
     background-color: rgba(132, 198, 255, 0.64);
 }
 
-.modal-backdrop {
+.modalBackdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -58,7 +58,7 @@
     animation: fadeIn 0.3s;
 }
 
-.modal-content {
+.modalContent {
     background: white;
     padding: 20px;
     border-radius: 5px;

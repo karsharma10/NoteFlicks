@@ -1,6 +1,5 @@
 import { markdownParserProps } from '../types/markdownParser';
-
-import { FC } from 'react';
+import styles from './markdown.module.css';
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -82,7 +81,7 @@ export default function MarkdownParser({token}: markdownParserProps): JSX.Elemen
 
 
   return (
-    <div className="markdown-parser-container">
+    <div className={styles.markdownParserContainer}>
       <Markdown components={MarkdownComponents} remarkPlugins={[remarkGfm]}>{token}</Markdown>
     </div>
   )
