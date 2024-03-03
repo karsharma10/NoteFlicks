@@ -1,6 +1,6 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import clientPromise from "../../../lib/mongodb";
-import {databaseName} from "../../../config/databaseConfig";
+import {databaseName} from "../../../configurations/databaseConfig";
 import {ObjectId} from "mongodb";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

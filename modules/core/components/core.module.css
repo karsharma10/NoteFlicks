@@ -62,20 +62,38 @@
     background: white;
     padding: 20px;
     border-radius: 5px;
-    width: 500px;
+    max-width: 1000px;
     animation: slideIn 0.3s;
 }
 
 .modalContentContainer {
     display: flex;
     align-items: center;
+    gap: 1rem;
+}
+
+.modalContentLink {
+    background-color: #f6f6f6;
+    padding: 6px;
+    border-radius: 5px;
 }
 
 .modalContentViewButton {
     cursor: pointer;
-    border-radius: 5px;
-    background-color: #e8e8e8;
-    border: 1px solid #adadad;
+    border-radius: 10px;
+    background-color: white;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #1f2937;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid transparent;
+    border-color: rgba(156, 163, 175, .5);
+}
+
+.modalContentViewButton:hover {
+    background-color: #f3f4f6;
 }
 
 @keyframes fadeIn {

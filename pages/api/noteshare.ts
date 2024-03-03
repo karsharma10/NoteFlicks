@@ -1,7 +1,7 @@
 import clientPromise from "../../lib/mongodb";
 import {NextApiRequest, NextApiResponse} from "next";
 import {NoteType} from "../../types/noteType";
-import {databaseName} from "../../config/databaseConfig";
+import {databaseName} from "../../configurations/databaseConfig";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const method = req.method;

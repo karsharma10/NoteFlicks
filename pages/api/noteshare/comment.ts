@@ -1,6 +1,6 @@
 import clientPromise from "../../../lib/mongodb";
 import {NextApiRequest, NextApiResponse} from "next";
-import {databaseName} from "../../../config/databaseConfig";
+import {databaseName} from "../../../configurations/databaseConfig";
 import {comment} from "../../../types/comment";
 import {ObjectId} from "mongodb";
 
