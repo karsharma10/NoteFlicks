@@ -18,7 +18,6 @@ export default function Main(): React.JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [appConfiguration, setAppConfiguration] = useState<AppConfiguration | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const router: NextRouter = useRouter();
 
 
   const updateContent = (newContent: string) => {
@@ -58,12 +57,13 @@ export default function Main(): React.JSX.Element {
     }
   }, []);
 
-  function modalContent() {
+  function modalContent(): React.JSX.Element {
     if (loading) {
       return <h1>Loading</h1>
     }
 
-    const link: string = `http://localhost:3000/app/view?noteId=${appConfiguration?.noteIdList[0]}`;
+    const baseURL: string = typeof window !== 'undefined' ? window.location.origin : '';
+    const link: string = `${baseURL}/app/view?noteId=${appConfiguration?.noteIdList[0]}`;
 
     return (
      <div className={styles.modalContentContainer}>
