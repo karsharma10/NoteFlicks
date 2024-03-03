@@ -66,6 +66,18 @@
     animation: slideIn 0.3s;
 }
 
+.modalContentContainer {
+    display: flex;
+    align-items: center;
+}
+
+.modalContentViewButton {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #e8e8e8;
+    border: 1px solid #adadad;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
