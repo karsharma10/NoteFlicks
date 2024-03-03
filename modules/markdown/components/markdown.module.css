@@ -45,8 +45,8 @@
 
 .markdownInputContainer {
     display: flex;
-    overflow: auto; /* Allows scrolling */
-    height: 100%; /* Adjust based on your needs */
+    overflow: auto;
+    height: 100%;
 }
 
 .markdownTextInput {
