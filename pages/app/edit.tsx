@@ -1,4 +1,4 @@
-import Main from './modules/core/components/Main';
+import Main from '../../modules/core/components/Main';
 import React from 'react';
 
 export default function Home(): React.JSX.Element {

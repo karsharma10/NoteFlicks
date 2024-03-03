@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react';
 import MarkdownInput from '../../markdown/components/MarkdownInput';
 import MarkdownParser from '../../markdown/components/MarkdownParser';
 import Header from './Header';
-import usePostRequest from '../hooks/usePost';
 import { NoteDocument, SaveNoteResponse } from '../type/saveNote';
 import Modal from './Modal';
 import styles from './core.module.css';
 import { NextRouter, useRouter } from 'next/router';
 import { v4 as uuidv4 } from 'uuid';
 import { doc, getDoc } from '@firebase/firestore';
-import { db } from '../../../../configurations/fireabseConfig';
+import { db } from '../../../configurations/fireabseConfig';
 import { AppConfiguration } from '../type/appConfiguration';
 
 export default function Main(): React.JSX.Element {
@@ -40,7 +39,7 @@ export default function Main(): React.JSX.Element {
         setLoading(false);
       } else {
         const errMsg: string = "No such document!";
-        console.log(errMsg);
+        console.warn(errMsg);
         throw new Error(errMsg);
       }
     };
@@ -72,7 +71,7 @@ export default function Main(): React.JSX.Element {
       return <h1>Loading</h1>
     }
 
-    const link = `http://localhost:3000/view?noteId=${appConfiguration?.noteIdList[0]}`;
+    const link: string = `http://localhost:3000/view?noteId=${appConfiguration?.noteIdList[0]}`;
 
     return (
      <div className={styles.modalContentContainer}>

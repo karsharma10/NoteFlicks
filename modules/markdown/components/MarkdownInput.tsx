@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
 import styles from './markdown.module.css';
 import { debounce } from '../utils/debounce';
-import { db } from '../../../../configurations/fireabseConfig';
+import { db } from '../../../configurations/fireabseConfig';
 import { NoteDocument } from '../../core/type/saveNote';
 
 interface MarkdownInputProps {

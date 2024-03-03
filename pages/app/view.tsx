@@ -1,9 +1,9 @@
 import { ReadonlyURLSearchParams, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { doc, onSnapshot } from '@firebase/firestore';
-import { db } from '../configurations/fireabseConfig';
+import { db } from '../../configurations/fireabseConfig';
 import { Unsubscribe } from '@firebase/util';
-import MarkdownParser from './modules/markdown/components/MarkdownParser';
+import MarkdownParser from '../../modules/markdown/components/MarkdownParser';
 
 export default function View(): JSX.Element {
   const searchParams: ReadonlyURLSearchParams = useSearchParams()
@@ -22,8 +22,21 @@ export default function View(): JSX.Element {
   }, [noteId]);
 
   return (
-    <div>
+    <>
       <MarkdownParser token={documentContent} />
-    </div>
+      <style jsx global>{`
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+        p {
+          margin: 0;
+        }
+      `}</style>
+    </>
   );
 }
