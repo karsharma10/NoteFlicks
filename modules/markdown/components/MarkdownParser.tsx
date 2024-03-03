@@ -29,11 +29,7 @@ SyntaxHighlighter.registerLanguage('java', java);
 SyntaxHighlighter.registerLanguage('python', python);
 
 
-type MarkdownProps = {
-  markdown: string & { content?: string };
-};
-
-export default function MarkdownParser({token}: markdownParserProps): JSX.Element {
+export default function MarkdownParser({token, halfWidth}: markdownParserProps): JSX.Element {
 
   const syntaxTheme = oneLight;
 
@@ -63,10 +59,10 @@ export default function MarkdownParser({token}: markdownParserProps): JSX.Elemen
       return hasLang ? (
         <SyntaxHighlighter
           style={syntaxTheme}
+           
           language={hasLang[1]}
           PreTag="div"
           className="codeStyle"
-          showLineNumbers={true}
           wrapLines={hasMeta}
           useInlineStyles={true}
           lineProps={applyHighlights}

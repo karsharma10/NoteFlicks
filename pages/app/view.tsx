@@ -23,9 +23,10 @@ export default function View(): JSX.Element {
 
   return (
     <>
-      <MarkdownParser token={documentContent} />
+      <MarkdownParser halfWidth={false} token={documentContent} />
       <style jsx global>{`
         body {
+          font-size: 14px;
           margin: 0;
           padding: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,

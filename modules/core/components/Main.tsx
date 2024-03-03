@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MarkdownInput from '../../markdown/components/MarkdownInput';
 import MarkdownParser from '../../markdown/components/MarkdownParser';
 import Header from './Header';
-import { NoteDocument, SaveNoteResponse } from '../type/saveNote';
+import { NoteDocument } from '../type/saveNote';
 import Modal from './Modal';
 import styles from './core.module.css';
 import { NextRouter, useRouter } from 'next/router';
@@ -10,15 +10,15 @@ import { v4 as uuidv4 } from 'uuid';
 import { doc, getDoc } from '@firebase/firestore';
 import { db } from '../../../configurations/fireabseConfig';
 import { AppConfiguration } from '../type/appConfiguration';
+import { exampleMarkdown } from '../../../data/markdown';
 
 export default function Main(): React.JSX.Element {
 
-  const [noteDocument, setNoteDocument] = useState<NoteDocument>({content: '', ownerId: ''});
+  const [noteDocument, setNoteDocument] = useState<NoteDocument>({content: exampleMarkdown, ownerId: ''});
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [saveNoteRes, setSaveNoteRes] = useState<SaveNoteResponse | null>(null);
   const [appConfiguration, setAppConfiguration] = useState<AppConfiguration | null>(null);
-  const router: NextRouter = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
+  const router: NextRouter = useRouter();
 
 
   const updateContent = (newContent: string) => {
@@ -58,35 +58,27 @@ export default function Main(): React.JSX.Element {
     }
   }, []);
 
-  function saveNote(): void {
-    /* Now, simply get the documentId from localStorage and use it to save the note
-       For future updates, we could store multiple document IDs in localstorage but for now, we'll just support one document
-       to be saved */
-    setIsModalOpen(true);
-  }
-
   function modalContent() {
-
     if (loading) {
       return <h1>Loading</h1>
     }
 
-    const link: string = `http://localhost:3000/view?noteId=${appConfiguration?.noteIdList[0]}`;
+    const link: string = `http://localhost:3000/app/view?noteId=${appConfiguration?.noteIdList[0]}`;
 
     return (
      <div className={styles.modalContentContainer}>
-       <p>{link}</p>
-       <button className={styles.modalContentViewButton} onClick={() => router.push(link)}>View</button>
+       <p className={styles.modalContentLink}>{link}</p>
+       <a className={styles.modalContentViewButton} href={link} target="_blank">View</a>
      </div>
     )
 
   }
 
-  if(loading || !appConfiguration || !noteDocument) return (<h1>Loading</h1>)
+  if (loading || !appConfiguration || !noteDocument) return <h1>Loading</h1>
 
   return (
     <div className={styles.mainContainer}>
-      <Header saveNote={saveNote}></Header>
+      <Header saveNote={() => setIsModalOpen(true)}></Header>
       <Modal isOpen={isModalOpen}
              onClose={() => setIsModalOpen(false)}
              children={modalContent()}
@@ -99,7 +91,7 @@ export default function Main(): React.JSX.Element {
           documentId={appConfiguration?.noteIdList[0]}
           userId={'sam'}
         ></MarkdownInput>
-        <MarkdownParser token={noteDocument.content}></MarkdownParser>
+        <MarkdownParser halfWidth={true} token={noteDocument.content}></MarkdownParser>
       </div>
     </div>
   );
