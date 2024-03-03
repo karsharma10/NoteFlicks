@@ -4,6 +4,7 @@ import { doc, onSnapshot } from '@firebase/firestore';
 import { db } from '../../configurations/fireabseConfig';
 import { Unsubscribe } from '@firebase/util';
 import MarkdownParser from '../../modules/markdown/components/MarkdownParser';
+import ViewHeader from "../../modules/core/components/ViewHeader";
 
 export default function View(): JSX.Element {
   const searchParams: ReadonlyURLSearchParams = useSearchParams()
@@ -23,6 +24,7 @@ export default function View(): JSX.Element {
 
   return (
     <>
+      <ViewHeader/>
       <MarkdownParser halfWidth={false} token={documentContent} />
       <style jsx global>{`
         body {
