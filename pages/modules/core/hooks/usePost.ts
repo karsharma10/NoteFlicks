@@ -9,6 +9,7 @@ const usePostRequest = <T>(url: string, method: validTypes = 'POST') => {
 
   const postData = async (body: any): Promise<T> => {
     setLoading(true);
+
     try {
       const response = await fetch(url, {
         method: method,
@@ -29,6 +30,7 @@ const usePostRequest = <T>(url: string, method: validTypes = 'POST') => {
     } catch (error) {
       setError((error as Error).message);
       setData(null);
+      return Promise.reject(error);
     } finally {
       setLoading(false);
     }

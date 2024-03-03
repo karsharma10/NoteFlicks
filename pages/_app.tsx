@@ -4,6 +4,7 @@ import './modules/core/components/core.css';
 import './modules/markdown/components/markdown.css';
 
 export default function Home(): JSX.Element {
+
   return (
     <Main></Main>
   );
